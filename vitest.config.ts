@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
@@ -7,5 +8,11 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    mockReset: true,
+    mocks: {
+      'next/font/google': {
+        Inter: () => ({ className: 'inter' }),
+      },
+    },
   },
 })
