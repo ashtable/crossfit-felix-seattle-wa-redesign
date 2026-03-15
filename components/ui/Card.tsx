@@ -1,7 +1,8 @@
+
 import React from 'react';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -13,7 +14,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         {...props}
       >
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        {title && <h3 className="text-xl font-bold mb-2">{title}</h3>}
         {children}
       </div>
     );
